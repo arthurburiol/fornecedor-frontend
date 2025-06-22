@@ -10,7 +10,7 @@ export default function Menu() {
             Fornecedor
           </a>
           <a href="/login" className="btn btn-primary">
-            Login
+            Usuarios
           </a>
         </div>
       </nav>

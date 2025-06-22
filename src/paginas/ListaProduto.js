@@ -1,6 +1,7 @@
 import TituloLista from "../componentes/TituloLista";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import FormFornecedor from "./FormFornecedor";
 
 export default function ListaProduto() {
   const [dados, setDados] = useState([]);
@@ -56,7 +57,7 @@ export default function ListaProduto() {
                     <td>{d.descricao}</td>
                     <td>{d.categoria}</td>
                     <td>{d.valor_unitario}</td>
-                    <td>{d.id_fornecedor}</td>
+                    <td>{d.fornecedor_id}</td>
                   </tr>
                 ))}
               </tbody>

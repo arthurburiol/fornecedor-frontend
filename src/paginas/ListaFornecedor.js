@@ -1,10 +1,11 @@
 import TituloLista from "../componentes/TituloLista";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ListaFornecedor() {
-  // Declarando uma variavel useState
   const [dados, setDados] = useState([]);
+  const navigate = useNavigate();
 
   const listar = async () => {
     let { data } = await axios.get(`http://localhost:4000/fornecedor`);
@@ -30,28 +31,32 @@ export default function ListaFornecedor() {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Alterar</th>
-                  <th scope="col">CNPJ</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">E-mail</th>
-                  <th scope="col">Endereço</th>
-                  <th scope="col">Telefone</th>
-
+                  <th>Alterar</th>
+                  <th>ID</th>
+                  <th>CNPJ</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Endereço</th>
+                  <th>Telefone</th>
                 </tr>
               </thead>
               <tbody>
-                {dados.map((d, i) => (
-                  <tr>
+                {dados.map((fornecedor) => (
+                  <tr key={fornecedor.id}>
                     <td>
-                      <a className="btn btn-dark" href={`/cadastrofornecedor/${d.idfornecedor}`}>
+                      <button
+                        className="btn btn-dark"
+                        onClick={() => navigate(`/cadastrofornecedor/${fornecedor.id}`)}
+                      >
                         Alterar
-                      </a>
+                      </button>
                     </td>
-                    <td>{d.cnpj}</td>
-                    <td>{d.nome}</td>
-                    <td>{d.email}</td>
-                    <td>{d.endereco}</td>
-                    <td>{d.telefone}</td>
+                    <td>{fornecedor.id}</td>
+                    <td>{fornecedor.cnpj}</td>
+                    <td>{fornecedor.nome}</td>
+                    <td>{fornecedor.email}</td>
+                    <td>{fornecedor.endereco}</td>
+                    <td>{fornecedor.telefone}</td>
                   </tr>
                 ))}
               </tbody>
