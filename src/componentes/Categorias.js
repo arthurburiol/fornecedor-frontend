@@ -10,7 +10,7 @@ export default function Estoque() {
   useEffect(() => {
     listarProdutos();
     listarFornecedores();
-    listarEstoque(); 
+    listarEstoque();
   }, []);
 
   const listarProdutos = async () => {
@@ -74,7 +74,7 @@ export default function Estoque() {
                     <tr key={item.id}>
                       <td>
                         <a className="btn btn-danger" href={`/baixaestoque/${produto.id}`}>
-                          Baixa Estoque
+                          Baixa de Estoque
                         </a>
                       </td>
                       <td>{nomeProduto(item.produto_id)}</td>
