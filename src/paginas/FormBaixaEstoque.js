@@ -1,30 +1,31 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TituloCadastro from "../componentes/TituloCadastro";
 
 export default function FormBaixaEstoque() {
   const navegacao = useNavigate();
-  const [produto_id, setProduto_id] = useState('');
+  const { id } = useParams();
   const [quantidade, setQuantidade] = useState('');
-  const [produtos, setProdutos] = useState([]);
+  const [produto, setProduto] = useState('');
+
+  const buscarProdutos = async () => {
+      const { data } = await axios.get(`http://localhost:4000/produto/${id}`);
+      setProduto (data.nome);
+  };
 
   useEffect(() => {
-    async function buscarProdutos() {
-      const { data } = await axios.get("http://localhost:4000/produto");
-      setProdutos(data);
-    }
     buscarProdutos();
-  }, []);
+  });
 
   const salvar = async () => {
     try {
-      if (!produto_id || !quantidade || quantidade <= 0) {
+      if (!id || !quantidade || quantidade <= 0) {
         alert("Informe o produto e uma quantidade válida.");
         return;
       }
 
-      await axios.put(`http://localhost:4000/estoque/baixa/${produto_id}`, {
+      await axios.put(`http://localhost:4000/estoque/baixa/${id}`, {
         quantidade: parseInt(quantidade),
       });
 
@@ -48,16 +49,11 @@ export default function FormBaixaEstoque() {
           }}>
             <div className="mb-3">
               <label className="form-label">Produto</label>
-              <select
-                className="form-select"
-                value={produto_id}
-                onChange={(e) => setProduto_id(e.target.value)}
-              >
-                <option value="">Selecione um produto</option>
-                {produtos.map((p) => (
-                  <option key={p.id} value={p.id}>{p.nome}</option>
-                ))}
-              </select>
+              <input
+                type="text"
+                className="form-control"
+                value={produto}
+              />
             </div>
 
             <div className="mb-3">
@@ -71,7 +67,7 @@ export default function FormBaixaEstoque() {
             </div>
 
             <div className="d-flex gap-2 mb-5">
-              <button type="submit" className="btn btn-danger">Baixar</button>
+              <button type="submit" className="btn btn-danger">Realizar Baixa</button>
               <button type="button" className="btn btn-secondary" onClick={() => navegacao("/estoque")}>
                 Cancelar
               </button>
