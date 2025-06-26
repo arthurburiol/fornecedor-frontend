@@ -9,6 +9,8 @@ import FormProduto from './paginas/FormProduto';
 import LoginSistema from './componentes/LoginSistema';
 import FormEstoque from './paginas/FormEstoque';
 import FormBaixaEstoque from './paginas/FormBaixaEstoque';
+import ListaUsuario from './paginas/ListaUsuario';
+import FormUsuario from './paginas/FormUsuario'; 
 
 function AppContent() {
   const location = useLocation();
@@ -27,6 +29,9 @@ function AppContent() {
         <Route path='/gerenciaestoque/:id' element={<FormEstoque />} />
 
         <Route path='/login' element={<LoginSistema />} />
+        <Route path='/listausuario' element={<ListaUsuario />} />
+        <Route path='/cadastrousuario' element={<FormUsuario />} />
+        <Route path='/cadastrousuario/:id' element={<FormUsuario />} />
 
         <Route path='/listafornecedor' element={<ListaFornecedor />} />
         <Route path='/cadastrofornecedor' element={<FormFornecedor />} />

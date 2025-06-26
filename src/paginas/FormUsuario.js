@@ -10,6 +10,7 @@ export default function FormUsuario() {
   const [cpf, setCpf] = useState('');
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [endereco, setEndereco] = useState('');
   const [telefone, setTelefone] = useState('');
 
@@ -24,6 +25,7 @@ export default function FormUsuario() {
     setCpf(data.cpf || '');
     setNome(data.nome || '');
     setEmail(data.email || '');
+    setSenha(data.senha || '');
     setEndereco(data.endereco || '');
     setTelefone(data.telefone || '');
   };
@@ -31,10 +33,11 @@ export default function FormUsuario() {
 
 
   const alterar = async () => {
-    await axios.get(`http://localhost:4000/cadastrousuario/${id}`, {
+    await axios.get(`http://localhost:4000/usuario/${id}`, {
       cpf,
       nome,
       email,
+      senha,
       endereco,
       telefone
     });
@@ -47,6 +50,7 @@ export default function FormUsuario() {
       cpf,
       nome,
       email,
+      senha,
       endereco,
       telefone
     });
@@ -114,6 +118,16 @@ export default function FormUsuario() {
                 className="form-control"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            
+            <div className="mb-3">
+              <label className="form-label">Senha</label>
+              <input
+                type="text"
+                className="form-control"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
               />
             </div>
 

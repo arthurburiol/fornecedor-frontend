@@ -9,7 +9,7 @@ export default function Menu() {
           <a className="navbar-brand text-white fw-bold" href="/">
             Fornecedor
           </a>
-          <a href="/login" className="btn btn-primary">
+          <a className="btn btn-primary" href="/listausuario" >
             Usuarios
           </a>
         </div>
