@@ -11,6 +11,7 @@ export default function FormProduto() {
   const [descricao, setDescricao] = useState('');
   const [categoria, setCategoria] = useState('');
   const [valor_unitario, setValor_unitario] = useState('');
+  const [peso_unitario, setPeso_unitario] = useState('');
   const [fornecedor_id, setFornecedor_id] = useState('');
 
   const selecionar = async () => {
@@ -19,6 +20,7 @@ export default function FormProduto() {
     setDescricao(data.descricao);
     setCategoria(data.categoria);
     setValor_unitario(data.valor_unitario);
+    setPeso_unitario(data.peso_unitario);
     setFornecedor_id(data.fornecedor_id);
   };
 
@@ -28,6 +30,7 @@ export default function FormProduto() {
       descricao,
       categoria,
       valor_unitario,
+      peso_unitario,
       fornecedor_id
     };
     await axios.put(`http://localhost:4000/produto/${id}`, body);
@@ -40,6 +43,7 @@ export default function FormProduto() {
       descricao,
       categoria,
       valor_unitario,
+      peso_unitario,
       fornecedor_id
     };
     await axios.post(`http://localhost:4000/produto/`, body);
@@ -128,6 +132,17 @@ export default function FormProduto() {
                 className="form-control"
                 value={valor_unitario}
                 onChange={(e) => setValor_unitario(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Peso Unitario</label>
+              <input
+                type="number"
+                step="0.01"
+                className="form-control"
+                value={peso_unitario}
+                onChange={(e) => setPeso_unitario(e.target.value)}
               />
             </div>
 

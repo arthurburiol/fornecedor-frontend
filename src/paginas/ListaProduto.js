@@ -42,6 +42,7 @@ export default function ListaProduto() {
                   <th scope="col">Descrição</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Valor</th>
+                  <th scope="col">Peso(Kg)</th>
                   <th scope="col">Fornecedor</th>
                 </tr>
               </thead>
@@ -57,6 +58,7 @@ export default function ListaProduto() {
                     <td>{d.descricao}</td>
                     <td>{d.categoria}</td>
                     <td>{d.valor_unitario}</td>
+                    <td>{d.peso_unitario}</td>
                     <td>{d.fornecedor_id}</td>
                   </tr>
                 ))}
