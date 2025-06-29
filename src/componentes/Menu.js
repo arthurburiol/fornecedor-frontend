@@ -9,8 +9,8 @@ export default function Menu() {
           <a className="navbar-brand text-white fw-bold" href="/">
             Fornecedor
           </a>
-          <a className="btn btn-primary" href="/listausuario" >
-            Usuarios
+          <a className="btn btn-primary" href="/login" >
+            Realizar Login
           </a>
         </div>
       </nav>
@@ -32,7 +32,7 @@ export default function Menu() {
 
           <div className="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link text-white" href="/menu">
+              <a className="nav-link text-white" href="/listaestoque">
                 Estoque de Produtos
               </a>
               <a className="nav-link text-white" href="/listaproduto">
@@ -40,6 +40,9 @@ export default function Menu() {
               </a>
               <a className="nav-link text-white" href="/listafornecedor">
                 Fornecedores
+              </a>
+              <a className="nav-link text-white" href="/listausuario">
+                Usuários
               </a>
             </div>
           </div>

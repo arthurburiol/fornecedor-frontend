@@ -37,7 +37,6 @@ export default function FormUsuario() {
       cpf,
       nome,
       email,
-      senha,
       endereco,
       telefone
     });
@@ -46,15 +45,21 @@ export default function FormUsuario() {
 
 
   const inserir = async () => {
-    await axios.post(`http://localhost:4000/usuario`, {
+    const insere = await axios.post(`http://localhost:4000/usuario`, {
       cpf,
       nome,
       email,
-      senha,
       endereco,
       telefone
     });
-    navegacao('/listausuario');
+
+    const id = insere.data.id;
+
+    await axios.put(`http://localhost:4000/senhausuario/${id}`, {
+      senha
+    })
+
+    navegacao('/home');
   };
 
   const salvar = async () => {
@@ -124,7 +129,7 @@ export default function FormUsuario() {
             <div className="mb-3">
               <label className="form-label">Senha</label>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
