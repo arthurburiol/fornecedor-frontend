@@ -58,11 +58,6 @@ export default function FormProduto() {
     }
   };
 
-  const excluir = async () => {
-    await axios.delete(`http://localhost:4000/produto/${id}`);
-    voltar();
-  };
-
   const voltar = () => {
     navegacao('/listaproduto');
   };
@@ -160,11 +155,6 @@ export default function FormProduto() {
               <button type="submit" className="btn btn-primary">
                 Salvar
               </button>
-              {id && (
-                <button type="button" className="btn btn-danger" onClick={excluir}>
-                  Excluir
-                </button>
-              )}
               <button type="button" className="btn btn-secondary" onClick={voltar}>
                 Cancelar
               </button>

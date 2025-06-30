@@ -72,7 +72,7 @@ export default function FormEstoque() {
 
 
   const voltar = () => {
-    navegacao("/estoque");
+    navegacao("/home");
   };
 
   useEffect(() => {

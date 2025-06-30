@@ -34,7 +34,6 @@ function AppContent() {
         <Route path='/listaestoque' element={<Home />} />
         <Route path='/gerenciaestoque' element={<PaginaSegura> <FormEstoque /> </PaginaSegura> } /> --aqui é dada a entrada de um produto no estoque
         <Route path="/baixaestoque/:id" element={<PaginaSegura> <FormBaixaEstoque /> </PaginaSegura> } />-- aqui é a baixa do estoque
-        <Route path='/gerenciaestoque/:id' element={<PaginaSegura> <FormEstoque /> </PaginaSegura> } />
 
         <Route path='/login' element={<LoginSistema />} />
         <Route path='/listausuario' element={<PaginaSegura> <ListaUsuario /> </PaginaSegura> } />
