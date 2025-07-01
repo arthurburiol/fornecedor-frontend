@@ -53,6 +53,12 @@ export default function Estoque() {
         rota="/gerenciaestoque"
         botao="Entrada de Estoque"
       />
+      
+      <TituloLista
+        descrição="Produtos com estoque abaixo de 10"
+        rota="/estoquebaixo"
+        botao="Verificar"
+      />
 
       <div className="container">
         <div className="row">

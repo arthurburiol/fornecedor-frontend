@@ -14,6 +14,7 @@ import PaginaSegura from './componentes/PaginaSegura';
 import Api from './servico/Api';
 import { useEffect } from 'react';
 import LoginSistema from './paginas/LoginSistema';
+import EstoqueBaixo from './paginas/EstoqueBaixo';
 
 function AppContent() {
 
@@ -34,6 +35,8 @@ function AppContent() {
         <Route path='/listaestoque' element={<Home />} />
         <Route path='/gerenciaestoque' element={<PaginaSegura> <FormEstoque /> </PaginaSegura> } /> --aqui é dada a entrada de um produto no estoque
         <Route path="/baixaestoque/:id" element={<PaginaSegura> <FormBaixaEstoque /> </PaginaSegura> } />-- aqui é a baixa do estoque
+
+        <Route path='/estoquebaixo' element={<PaginaSegura> < EstoqueBaixo /> </PaginaSegura>} />
 
         <Route path='/login' element={<LoginSistema />} />
         <Route path='/listausuario' element={<PaginaSegura> <ListaUsuario /> </PaginaSegura> } />
